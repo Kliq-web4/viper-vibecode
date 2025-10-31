@@ -1,3 +1,5 @@
+import React from 'react';
+
 export function CloudflareLogo(props: React.SVGProps<SVGSVGElement> & { color1?: string, color2?: string}) {
 	return (
 		<svg
