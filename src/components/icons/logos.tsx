@@ -71,3 +71,67 @@ export const AIAvatar = (props: React.SVGProps<SVGSVGElement>) => (
 		/>
 	</svg>
 );
+
+export function CKLogo(props: React.SVGProps<SVGSVGElement>) {
+	const uniqueId = React.useId();
+	return (
+		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none" {...props}>
+			<defs>
+				<filter id={`neumorphic-${uniqueId}`} x="-50%" y="-50%" width="200%" height="200%">
+					<feGaussianBlur in="SourceAlpha" stdDeviation="8" result="blur"/>
+					<feOffset in="blur" dx="4" dy="4" result="offsetBlur"/>
+					<feComponentTransfer>
+						<feFuncA type="linear" slope="0.3"/>
+					</feComponentTransfer>
+					<feGaussianBlur in="SourceAlpha" stdDeviation="8" result="blur2"/>
+					<feOffset in="blur2" dx="-4" dy="-4" result="offsetBlur2"/>
+					<feComponentTransfer>
+						<feFuncA type="linear" slope="0.3"/>
+					</feComponentTransfer>
+					<feMerge>
+						<feMergeNode/>
+						<feMergeNode in="offsetBlur"/>
+						<feMergeNode in="offsetBlur2"/>
+					</feMerge>
+				</filter>
+				<linearGradient id={`ckGradient-${uniqueId}`} x1="0%" y1="0%" x2="100%" y2="100%">
+					<stop offset="0%" stopColor="#A033FF" />
+					<stop offset="100%" stopColor="#FF9933" />
+				</linearGradient>
+			</defs>
+			<rect x="20" y="20" width="160" height="160" rx="30" fill="#281A3D" filter={`url(#neumorphic-${uniqueId})`}/>
+			<circle cx="100" cy="100" r="60" stroke={`url(#ckGradient-${uniqueId})`} strokeWidth="12" fill="none"/>
+			<g transform="translate(100, 100)">
+				<path d="M -15 -25 Q -35 -25 -35 0 Q -35 25 -15 25" stroke={`url(#ckGradient-${uniqueId})`} strokeWidth="12" fill="none" strokeLinecap="round"/>
+				<path d="M 15 -30 L 15 30" stroke={`url(#ckGradient-${uniqueId})`} strokeWidth="12" strokeLinecap="round"/>
+				<path d="M 15 0 L 35 -20" stroke={`url(#ckGradient-${uniqueId})`} strokeWidth="12" strokeLinecap="round"/>
+				<path d="M 15 0 L 35 20" stroke={`url(#ckGradient-${uniqueId})`} strokeWidth="12" strokeLinecap="round"/>
+			</g>
+		</svg>
+	);
+}
+
+export function KliqAILogo(props: React.SVGProps<SVGSVGElement>) {
+	const uniqueId = React.useId();
+	return (
+		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200" fill="none" {...props}>
+			<defs>
+				<linearGradient id={`kliqGradient-${uniqueId}`} x1="0%" y1="0%" x2="100%" y2="0%">
+					<stop offset="0%" stopColor="#A033FF" />
+					<stop offset="50%" stopColor="#FF00FF" />
+					<stop offset="100%" stopColor="#FF9933" />
+				</linearGradient>
+			</defs>
+			<circle cx="100" cy="100" r="60" stroke={`url(#kliqGradient-${uniqueId})`} strokeWidth="8" fill="none"/>
+			<g transform="translate(100, 100)">
+				<path d="M -25 -35 L -25 35" stroke={`url(#kliqGradient-${uniqueId})`} strokeWidth="12" strokeLinecap="round"/>
+				<path d="M -25 0 L 25 -25" stroke={`url(#kliqGradient-${uniqueId})`} strokeWidth="12" strokeLinecap="round"/>
+				<path d="M -25 0 L 25 25" stroke={`url(#kliqGradient-${uniqueId})`} strokeWidth="12" strokeLinecap="round"/>
+			</g>
+			<g>
+				<text x="180" y="90" fontFamily="system-ui, -apple-system, sans-serif" fontSize="48" fontWeight="bold" fill={`url(#kliqGradient-${uniqueId})`}>Kliq</text>
+				<text x="180" y="140" fontFamily="system-ui, -apple-system, sans-serif" fontSize="48" fontWeight="bold" fill={`url(#kliqGradient-${uniqueId})`}>AI</text>
+			</g>
+		</svg>
+	);
+}
