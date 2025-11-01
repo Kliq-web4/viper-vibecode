@@ -200,9 +200,17 @@ export default function Home() {
 						>
 							Build something
 							<span className="block mt-2 bg-gradient-to-r from-purple-400 via-pink-400 to-orange-400 bg-clip-text text-transparent">
-								Lovable
+								web4.sbs
 							</span>
 						</motion.h2>
+						<motion.p
+							initial={{ opacity: 0, y: 20 }}
+							animate={{ opacity: 1, y: 0 }}
+							transition={{ delay: 0.25 }}
+							className="text-lg text-white/70 mb-2"
+						>
+							Powered by Kliq AI
+						</motion.p>
 						<motion.p
 							initial={{ opacity: 0, y: 20 }}
 							animate={{ opacity: 1, y: 0 }}
